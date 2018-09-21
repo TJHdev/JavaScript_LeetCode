@@ -10,11 +10,11 @@ The complement strategy is to flip the bits of its binary representation.
 
 var findComplement = function(num) {
   num = num.toString(2);
-  let total = 0;
+  let newString = '';
   for(let i = 0; i < num.length; i++) {
-    if(num[i] === '0') ++total;
+    num[i] === '1' ? newString += '0' : newString += '1';
   }
-  return total;
+  return parseInt(newString, 2);
 };
 
 findComplement(5); // expect 2

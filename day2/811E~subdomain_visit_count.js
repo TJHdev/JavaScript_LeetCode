@@ -13,31 +13,39 @@ that explicitly counts the number of visits to each subdomain.
 */
 
 
-debugger;
+// debugger;
 /**
  * @param {string[]} cpdomains
  * @return {string[]}
  */
+
 var subdomainVisits = function(cpdomains) {
   let hashTotals = {};
   cpdomains.forEach(website => {
     let arr = website.split(' ');
-
-    while(arr[1].length > 0) {
+    while(true) {
       if(!hashTotals[arr[1]]) {
-        hashTotals[arr[1]] = arr[0];
+        hashTotals[arr[1]] = Number(arr[0]);
       } else {
-        hashTotals[arr[1]] += arr[0];
+        hashTotals[arr[1]] += Number(arr[0]);
       }
-      let index = arr[1].indexOf('.') + 1;
-      arr[1] = arr[1].substring(index, arr[1].length - 1);
-      console.log(arr[1])
+      let index = arr[1].indexOf('.');
+      if(index === -1) {
+        break;
+      } else {
+        index += 1
+      }
+      arr[1] = arr[1].substring(index, arr[1].length);
     }
   })
-  console.log(hashTotals);
+  let result = Object.entries(hashTotals);
+  result = result.map(array => {
+    return array[1] + " " + array[0];
+  })
+  return result;
 };
 
 
-subdomainVisits(["9001 discuss.leetcode.com"]); // ["9001 discuss.leetcode.com", "9001 leetcode.com", "9001 com"]
 subdomainVisits(["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"]); 
 // ["901 mail.com","50 yahoo.com","900 google.mail.com","5 wiki.org","5 org","1 intel.mail.com","951 com"]
+subdomainVisits(["9001 discuss.leetcode.com"]); // ["9001 discuss.leetcode.com", "9001 leetcode.com", "9001 com"]

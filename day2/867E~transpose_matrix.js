@@ -6,8 +6,6 @@ The transpose of a matrix is the matrix flipped over it's main diagonal, switchi
 // new Array(20000)
 var transpose = function(A) {
   let result = [];
-  let height = A.length;
-  let width = A[0].length
   for(let i = 0; i < A[0].length; i++) {
     let subArray = [];
     for(let j = 0; j < A.length; j++) {
