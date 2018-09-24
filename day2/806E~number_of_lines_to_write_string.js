@@ -25,4 +25,4 @@ var numberOfLines = function(widths, S) {
   return [lineTally, currentLineLength]
 };
 
-numberOfLines([4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10], "abcdefghijklmnopqrstuvwxyz"); // expect [3, 60]
+numberOfLines([4,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10,10], "abcdefghijklmnopqrstuvwxyz"); // expect [3, 60];

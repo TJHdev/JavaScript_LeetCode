@@ -42,7 +42,7 @@ var uniqueMorseRepresentations = function(words) {
     }
   }
   var count = 0;
-  for (var k in transforms) if (transforms.hasOwnProperty(k)) ++count; // count the number of unique transforms and return.
+  for (var k in transforms) ++count; // count the number of unique transforms and return.
 
   return count 
 };

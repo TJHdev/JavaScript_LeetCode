@@ -1,3 +1,10 @@
+/*
+Takes an array of integers and an a target.
+Try to find the first pair of ints within the array which add up to the target.
+return the the Indexs of the numbers.
+*/
+
+
 // function twoSum(nums, target) {
 //   const hash = {};
 //   let num;
