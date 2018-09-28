@@ -24,24 +24,25 @@ Google: 90% of our engineers use the software you wrote (Homebrew), but you canâ
 */
 
 var invertTree = function(root) {
-  
+  if(!root) return null;
+  let queue = [];
+  let curr;
+  let temp;
+
+  queue.push(root);
+
+  while(queue.length !== 0) {
+    curr = queue.shift();
+    temp = curr.left;
+    curr.left = curr.right;
+    curr.right = temp;
+
+    if(Boolean(curr.left)) queue.push(curr.left);
+    if(Boolean(curr.right)) queue.push(curr.right);
+  }
+  return root;
 };
 
-var treeTraversalInOrderIterative = function(root) {
-  if(!root) return null;
-  let stack = [];
-  let currentNode = root;
-  while(currentNode !== null || stack.length > 0) {
-    while(currentNode !== null) {
-      stack.push(currentNode);
-      currentNode = currentNode.left;
-      console.log(stack);
-    }
-    currentNode = stack.pop();
-    console.log(currentNode.val);
-    currentNode = currentNode.right;
-  }
-};
 
 function TreeNode(val) {
   this.val = val;

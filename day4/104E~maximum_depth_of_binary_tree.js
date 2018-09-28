@@ -69,3 +69,28 @@ tree1.right.left = new TreeNode(15);
 tree1.right.right = new TreeNode(7);
 
 maxDepth(tree1);
+
+
+function maxDepthIterative(root) {
+  let maxDepth = 0;
+  let stack = [];
+  let result = [];
+  let curr = root;
+
+
+  while(Boolean(curr) || stack.length !== 0) {
+    if(Boolean(curr)) {
+      stack.push(curr);
+      curr = curr.left;
+    } else {
+      console.log(stack)
+      maxDepth = Math.max(maxDepth, stack.length);
+      curr = stack.pop();
+      result.push(curr.val);
+      curr = curr.right;
+    }
+  } 
+  return maxDepth;
+}
+
+maxDepthIterative(tree1);
